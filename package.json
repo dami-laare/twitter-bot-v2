@@ -1,0 +1,29 @@
+{
+  "name": "twitter-bot-v2",
+  "version": "1.0.0",
+  "description": "Twitter bot for JesusBot built by DevNexus",
+  "main": "index.js",
+  "repository": "git@github.com:dami-laare/twitter-bot-v2.git",
+  "author": "Temitayo Osunkiyesi (Nexus)",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^4.7.1",
+    "@types/node": "^18.11.11",
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "twitter-api-v2": "^1.12.9"
+  },
+  "devDependencies": {
+    "prisma": "^4.7.1",
+    "typescript": "^4.9.3"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "migrate:dev": "yarn prisma migrate dev --name",
+    "migrate:deploy": "yarn prisma migrate deploy",
+    "migrate:reset": "yarn prisma migrate reset",
+    "seed": "ts-node src/scripts/find-all-tweets-and-like.ts",
+    "tweet:countdown": "ts-node src/scripts/countdown.ts"
+  }
+}
