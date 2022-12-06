@@ -24,6 +24,7 @@
     "migrate:deploy": "yarn prisma migrate deploy",
     "migrate:reset": "yarn prisma migrate reset",
     "seed": "ts-node src/scripts/find-all-tweets-and-like.ts",
-    "tweet:countdown": "ts-node src/scripts/countdown.ts"
+    "tweet:countdown": "ts-node src/scripts/countdown.ts",
+    "build": "tsc"
   }
 }
