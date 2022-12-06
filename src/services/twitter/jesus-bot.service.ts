@@ -74,7 +74,7 @@ export class JesusTwitterService {
       rebootCampStartDate.getDay() - todayDate.getDay()
     } DAY${
       rebootCampStartDate.getDay() - todayDate.getDay() > 1 ? "S" : ""
-    } TILL REBOOT CAMP 🔥🔥🔥\n\n#PstIrenSaid #RebootCamp #Contagious\n@cci__global`;
+    } TILL REBOOT CAMP 🔥🔥🔥\n\n#PstIrenSaid #RebootCamp #Contagious\n@cci__global @cci_ikeja`;
 
     await this.twitterServiceV1.tweet(tweetContent, {
       media: { media_ids: ["1599957504967991303", "1599957517064339457"] },
