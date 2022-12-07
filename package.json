@@ -9,7 +9,9 @@
   "dependencies": {
     "@prisma/client": "^4.7.1",
     "@types/node": "^18.11.11",
+    "@types/node-cron": "^3.0.6",
     "dotenv": "^16.0.3",
+    "node-cron": "^3.0.2",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "twitter-api-v2": "^1.12.9"
@@ -24,6 +26,7 @@
     "migrate:deploy": "yarn prisma migrate deploy",
     "migrate:reset": "yarn prisma migrate reset",
     "seed": "ts-node src/scripts/find-all-tweets-and-like.ts",
+    "seed:following": "ts-node src/scripts/seed-following.ts",
     "tweet:countdown": "ts-node src/scripts/countdown.ts",
     "build": "tsc"
   }

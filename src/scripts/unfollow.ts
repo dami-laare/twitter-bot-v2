@@ -1,0 +1,18 @@
+import { PrismaClient } from "@prisma/client";
+import { NexusService } from "../services/twitter/nexus.service";
+
+const nexusService = new NexusService();
+const prisma = new PrismaClient();
+
+export const unFollow = async () => {
+  const bastards = await prisma.naughtyUser.findMany({ take: 50 });
+
+  for (let bastard of bastards) {
+    await nexusService.kamikaze(bastard.twitterId);
+
+    await prisma.naughtyUser.update({
+      where: { id: bastard.id },
+      data: { isUnfollowed: true },
+    });
+  }
+};

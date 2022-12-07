@@ -9,3 +9,11 @@ if (rebootCampStartDate.getTime() - todayDate.getTime() > 0) {
     process.exit();
   });
 }
+
+if (
+  rebootCampStartDate.toLocaleDateString() === todayDate.toLocaleDateString()
+) {
+  jesusTwitterService.tweetCountDown(true).then((content) => {
+    process.exit();
+  });
+}

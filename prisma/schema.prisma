@@ -19,3 +19,28 @@ model Tweet {
 
   @@map("tweets")
 }
+
+model Following {
+  id        String @unique @default(uuid())
+  username  String
+  twitterId String
+
+  @@map("following")
+}
+
+model Follower {
+  id        String @unique @default(uuid())
+  username  String
+  twitterId String
+
+  @@map("followers")
+}
+
+model naughtyUser {
+  id           String  @unique @default(uuid())
+  username     String
+  twitterId    String
+  isUnfollowed Boolean @default(false)
+
+  @@map("naughty_user")
+}

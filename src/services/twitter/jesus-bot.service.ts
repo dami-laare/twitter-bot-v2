@@ -67,14 +67,17 @@ export class JesusTwitterService {
     return { tweet: res.data };
   }
 
-  public async tweetCountDown() {
+  public async tweetCountDown(isToday = false) {
     const rebootCampStartDate = new Date("2022-12-09");
     const todayDate = new Date();
-    const tweetContent = `${
-      rebootCampStartDate.getDay() - todayDate.getDay()
-    } DAY${
-      rebootCampStartDate.getDay() - todayDate.getDay() > 1 ? "S" : ""
-    } TILL REBOOT CAMP 🔥🔥🔥\n\n#PstIrenSaid #RebootCamp #Contagious\n@cci__global @cci_ikeja`;
+    let tweetContent: string;
+    if (isToday) {
+      tweetContent = `ARE YOU READY TO CATCH FIRE!!! 🔥🔥🔥🔥🔥🔥🔥🔥🔥\n\n#PstIrenSaid #RebootCamp #Contagious\n@cci__global @cci_ikeja`;
+    } else {
+      tweetContent = `${rebootCampStartDate.getDay() - todayDate.getDay()} DAY${
+        rebootCampStartDate.getDay() - todayDate.getDay() > 1 ? "S" : ""
+      } TILL REBOOT CAMP 🔥🔥🔥\n\n#PstIrenSaid #RebootCamp #Contagious\n@cci__global @cci_ikeja`;
+    }
 
     await this.twitterServiceV1.tweet(tweetContent, {
       media: { media_ids: ["1599957504967991303", "1599957517064339457"] },
