@@ -73,6 +73,8 @@ export class JesusTwitterService {
     let tweetContent: string;
     if (isToday) {
       tweetContent = `ARE YOU READY TO CATCH FIRE!!! 🔥🔥🔥🔥🔥🔥🔥🔥🔥\n\n#PstIrenSaid #RebootCamp #Contagious\n@cci__global @cci_ikeja`;
+    } else if (rebootCampStartDate.getDay() - todayDate.getDay() === 1) {
+      tweetContent = `REBOOT CAMP IS TOMORROW!!!🔥🔥🔥🤸🏿‍♂️🤸🏿‍♂️🤸🏿‍♂️🕺🏿🕺🏿🕺🏿 \n\nAre you ready?\n\n#PstIrenSaid #RebootCamp #Contagious\n@cci__global @cci_ikeja`;
     } else {
       tweetContent = `${rebootCampStartDate.getDay() - todayDate.getDay()} DAY${
         rebootCampStartDate.getDay() - todayDate.getDay() > 1 ? "S" : ""

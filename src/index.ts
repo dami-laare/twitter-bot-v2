@@ -6,22 +6,19 @@ import * as cron from "node-cron";
 const nexusService = new NexusService();
 
 // nexusService.getFollowing();
-// let count = 1;
-// const task = cron.schedule("*/16 * * * *", async () => {
-//   try {
-//     await unFollow();
-//     console.log(count);
-//     count++;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+let count = 1;
+console.log(count, new Date().toLocaleString());
+unFollow().then(() => {
+  const task = cron.schedule("*/20 * * * *", async () => {
+    try {
+      count++;
+      console.log("START", count, new Date().toLocaleString());
+      await unFollow();
+      console.log("END", count, new Date().toLocaleString());
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
-// task.start();
-// jesusTwitterService.getIrenTweets();
-
-try {
-  unFollow();
-} catch (err: any) {
-  console.log(err.request);
-}
+  task.start();
+});

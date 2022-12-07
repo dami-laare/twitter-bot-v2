@@ -50,9 +50,14 @@ export class NexusService {
 
   public async kamikaze(targetId: string) {
     try {
-      await this.twitterServiceV1.unfollow(nexusTwitterId, targetId);
+      const res = await this.twitterServiceV1.unfollow(
+        nexusTwitterId,
+        targetId
+      );
+
+      return res.data.following;
     } catch (err: any) {
-      console.log({ err });
+      console.log({ err, req: err.request });
     }
   }
 }
